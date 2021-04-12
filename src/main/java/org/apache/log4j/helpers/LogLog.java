@@ -17,6 +17,8 @@
 
 package org.apache.log4j.helpers;
 
+import java.util.logging.Logger;
+
 /**
    This class used to output log statements from within the log4j package.
 
@@ -136,7 +138,6 @@ public class LogLog {
      statements. There is no way to disable error statements.
      Output goes to <code>System.err</code>.  
   */
-  //FIXME: Use logger instead of printstacktrace()
   public
   static
   void error(String msg, Throwable t) {
@@ -146,9 +147,9 @@ public class LogLog {
 
     System.err.println(ERR_PREFIX+msg);
     if(t != null) {
-      t.printStackTrace();
+      Logger.getLogger("error value", String.valueOf(t));
     }
-  }  
+  }
 
   /**
      In quite mode no LogLog generates strictly no output, not even
