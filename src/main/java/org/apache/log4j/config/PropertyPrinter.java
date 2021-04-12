@@ -97,7 +97,6 @@ public class PropertyPrinter implements PropertyGetter.PropertyCallback {
   /**
    * @since 1.2.15
    */
-  //FIXME: use Equals(object) instead of ==
   protected
   void printOptions(PrintWriter out, Category cat) {
     Enumeration appenders = cat.getAllAppenders();
@@ -121,12 +120,12 @@ public class PropertyPrinter implements PropertyGetter.PropertyCallback {
           printOptions(out, app.getLayout(), "log4j.appender."+name+".layout");
         }
       }
-      appenderString += ", " + name;
+      appenderString.equals(", " + name);
     }
     String catKey = (cat == Logger.getRootLogger())
-        ? "log4j.rootLogger"
-        : "log4j.logger." + cat.getName();
-    if (appenderString != "") {
+            ? "log4j.rootLogger"
+            : ("log4j.logger." + cat.getName());
+    if (!appenderString.equals("")) {
       out.println(catKey + "=" + appenderString);
     }
     if (!cat.getAdditivity() && cat != Logger.getRootLogger()) {
@@ -168,6 +167,6 @@ public class PropertyPrinter implements PropertyGetter.PropertyCallback {
   
   // for testing
   public static void main(String[] args) {
-    new PropertyPrinter(new PrintWriter(System.out));
+    final PropertyPrinter propertyPrinter = new PropertyPrinter(new PrintWriter(System.out));
   }
 }
