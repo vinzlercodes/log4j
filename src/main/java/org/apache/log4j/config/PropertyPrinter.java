@@ -97,6 +97,7 @@ public class PropertyPrinter implements PropertyGetter.PropertyCallback {
   /**
    * @since 1.2.15
    */
+  //FIXME: use Equals(object) instead of ==
   protected
   void printOptions(PrintWriter out, Category cat) {
     Enumeration appenders = cat.getAllAppenders();
