@@ -127,7 +127,6 @@ public class PatternParser {
     return r;
   }
 
-  //FIXME: Switch statement must contain a default case
   public
   PatternConverter parse() {
     char c;
@@ -218,6 +217,8 @@ public class PatternParser {
 	  state = LITERAL_STATE;
 	}
 	break;
+        default:
+          throw new IllegalStateException("Unexpected value: " + state);
       } // switch
     } // while
     if(currentLiteral.length() != 0) {
