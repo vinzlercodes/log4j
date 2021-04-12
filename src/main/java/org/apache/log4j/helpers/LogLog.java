@@ -136,6 +136,7 @@ public class LogLog {
      statements. There is no way to disable error statements.
      Output goes to <code>System.err</code>.  
   */
+  //FIXME: Use logger instead of printstacktrace()
   public
   static
   void error(String msg, Throwable t) {
