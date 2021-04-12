@@ -228,7 +228,6 @@ public abstract class AppenderSkeleton implements Appender, OptionHandler {
     * delegating actual logging to the subclasses specific {@link
     * AppenderSkeleton#append} method.
     * */
-  //TODO: add break statement in switch case
   public
   synchronized 
   void doAppend(LoggingEvent event) {
@@ -249,6 +248,7 @@ public abstract class AppenderSkeleton implements Appender, OptionHandler {
       case Filter.DENY: return;
       case Filter.ACCEPT: break FILTER_LOOP;
       case Filter.NEUTRAL: f = f.getNext();
+      break;
       }
     }
     
