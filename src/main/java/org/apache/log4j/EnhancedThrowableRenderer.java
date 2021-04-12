@@ -46,7 +46,6 @@ public final class EnhancedThrowableRenderer implements ThrowableRenderer {
     /**
      * Construct new instance.
      */
-    //FIXME: Method should catch exception
     public EnhancedThrowableRenderer() {
         try {
             Class[] noArgs = null;
@@ -54,6 +53,7 @@ public final class EnhancedThrowableRenderer implements ThrowableRenderer {
             Class ste = Class.forName("java.lang.StackTraceElement");
             getClassNameMethod = ste.getMethod("getClassName", noArgs);
         } catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
 
