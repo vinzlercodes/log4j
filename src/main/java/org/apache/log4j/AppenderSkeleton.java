@@ -97,6 +97,7 @@ public abstract class AppenderSkeleton implements Appender, OptionHandler {
 
      @since 0.9.0
    */
+  //TODO: Add override annotation
   public
   void addFilter(Filter newFilter) {
     if(headFilter == null) {
