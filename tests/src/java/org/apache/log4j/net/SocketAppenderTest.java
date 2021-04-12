@@ -19,6 +19,7 @@ package org.apache.log4j.net;
 import junit.framework.TestCase;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.Logger;
+import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
 import org.apache.log4j.xml.DOMConfigurator;
 
@@ -65,6 +66,10 @@ public class SocketAppenderTest extends TestCase {
      * Inner-class For debugging purposes only Saves last LoggerEvent
      */
     static public class LastOnlyAppender extends AppenderSkeleton {
+        public void addFilter(Filter newFilter) {
+            super.addFilter(newFilter);
+        }
+
         protected void append(LoggingEvent event) {
             this.lastEvent = event;
         }

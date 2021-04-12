@@ -18,6 +18,8 @@
 package org.apache.log4j;
 
 import java.util.Vector;
+
+import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
 
 /**
@@ -38,8 +40,12 @@ public class VectorAppender extends AppenderSkeleton {
   public void activateOptions() {
   }
 
+    public void addFilter(Filter newFilter) {
+        super.addFilter(newFilter);
+    }
 
-  /**
+
+    /**
      This method is called by the {@link AppenderSkeleton#doAppend}
      method.
 

@@ -270,6 +270,10 @@ public class PropertyConfiguratorTest extends TestCase {
 
         }
 
+        public void addFilter(Filter newFilter) {
+            super.addFilter(newFilter);
+        }
+
         public RollingPolicy getRollingPolicy() {
             return rollingPolicy;
         }

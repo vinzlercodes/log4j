@@ -21,6 +21,7 @@ import junit.framework.TestCase;
 
 import java.util.Vector;
 
+import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
 
 /**
@@ -104,8 +105,12 @@ public class AsyncAppenderTestCase extends TestCase {
           public NullPointerAppender() {
           }
 
+        public void addFilter(Filter newFilter) {
+            super.addFilter(newFilter);
+        }
 
-          /**
+
+        /**
              This method is called by the {@link org.apache.log4j.AppenderSkeleton#doAppend}
              method.
 
@@ -275,7 +280,11 @@ public class AsyncAppenderTestCase extends TestCase {
         super();
       }
 
-      /**
+        public void addFilter(Filter newFilter) {
+            super.addFilter(newFilter);
+        }
+
+        /**
        * {@inheritDoc}
        */
       public void append(final LoggingEvent event) {

@@ -29,6 +29,7 @@ import java.util.Map;
 
 import org.apache.log4j.helpers.AppenderAttachableImpl;
 import org.apache.log4j.spi.AppenderAttachable;
+import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
 
 
@@ -122,7 +123,11 @@ public class AsyncAppender extends AppenderSkeleton
     dispatcher.start();
   }
 
-  /**
+    public void addFilter(Filter newFilter) {
+        super.addFilter(newFilter);
+    }
+
+    /**
    * Add appender.
    *
    * @param newAppender appender to add, may not be null.

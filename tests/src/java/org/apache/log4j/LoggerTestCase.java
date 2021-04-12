@@ -18,10 +18,7 @@
 package org.apache.log4j;
 
 import junit.framework.TestCase;
-import org.apache.log4j.spi.LoggingEvent;
-import org.apache.log4j.spi.RootLogger;
-import org.apache.log4j.spi.LoggerRepository;
-import org.apache.log4j.spi.HierarchyEventListener;
+import org.apache.log4j.spi.*;
 
 import java.util.Enumeration;
 import java.util.Locale;
@@ -483,7 +480,12 @@ public class LoggerTestCase extends TestCase {
     CountingAppender() {
       counter = 0;
     }
-    public void close() {
+
+      public void addFilter(Filter newFilter) {
+          super.addFilter(newFilter);
+      }
+
+      public void close() {
     }
 
     public
