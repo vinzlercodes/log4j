@@ -977,19 +977,18 @@ class SortedKeyEnumeration implements Enumeration {
 
   private Enumeration e;
 
-  //FIXME: change loop variable
   public SortedKeyEnumeration(Hashtable ht) {
     Enumeration f = ht.keys();
     Vector keys = new Vector(ht.size());
-    for (int i, last = 0; f.hasMoreElements(); ++last) {
+    for (int last = 0, j; f.hasMoreElements(); ++last) {
       String key = (String) f.nextElement();
-      for (i = 0; i < last; ++i) {
-        String s = (String) keys.get(i);
+      for (j = 0; j < last; ++j) {
+        String s = (String) keys.get(j);
         if (key.compareTo(s) <= 0) {
             break;
         }
       }
-      keys.add(i, key);
+      keys.add(j, key);
     }
     e = keys.elements();
   }
