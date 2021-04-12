@@ -127,6 +127,7 @@ public class PatternParser {
     return r;
   }
 
+  //FIXME: Switch statement must contain a default case
   public
   PatternConverter parse() {
     char c;
