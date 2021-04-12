@@ -46,6 +46,7 @@ public final class EnhancedThrowableRenderer implements ThrowableRenderer {
     /**
      * Construct new instance.
      */
+    //FIXME: Method should catch exception
     public EnhancedThrowableRenderer() {
         try {
             Class[] noArgs = null;
