@@ -977,6 +977,7 @@ class SortedKeyEnumeration implements Enumeration {
 
   private Enumeration e;
 
+  //FIXME: change loop variable
   public SortedKeyEnumeration(Hashtable ht) {
     Enumeration f = ht.keys();
     Vector keys = new Vector(ht.size());
