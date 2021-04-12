@@ -133,7 +133,7 @@ public abstract class AppenderSkeleton implements Appender, OptionHandler {
      <code>close</code> method.
 
      @since 0.8.4 */
-  //TODO: finalize() should be made protected not public
+  //TODO: finalize() method should be made protected not public
   public
   void finalize() {
     // An appender might be closed then garbage collected. There is no
