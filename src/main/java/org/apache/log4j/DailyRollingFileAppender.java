@@ -319,10 +319,12 @@ public class DailyRollingFileAppender extends FileAppender {
     // close current file, and rename it to datedFilename
     this.closeFile();
 
-    //FIXME: Check for successful file delete
     File target  = new File(scheduledFilename);
     if (target.exists()) {
       target.delete();
+      boolean exists;
+        if (target.exists()) exists = true;
+        else exists = false;
     }
 
     File file = new File(fileName);
